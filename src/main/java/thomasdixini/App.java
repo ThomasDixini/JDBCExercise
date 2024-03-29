@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
+
 /**
  * Hello world!
  *
@@ -15,23 +19,31 @@ public class App {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con;
+            String url = "jdbc:mysql://localhost:3306/jdbc";
 
-            System.out.println("Entrou");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "1234");
-            Statement stmt = con.createStatement();
+            RowSetFactory factory = RowSetProvider.newFactory();
 
-            String query = "create table SUPPLIERS" + "(SUP_ID integer NOT NULL, PRIMARY KEY(SUP_ID))";
-            stmt.executeUpdate(query);
+            JdbcRowSet jdbcRs = factory.createJdbcRowSet();
+            jdbcRs.setUrl(url);
+            jdbcRs.setUsername("root");
+            jdbcRs.setPassword("1234");
 
-            ResultSet rs = stmt.executeQuery("select * from SUPPLIERS");
-            while (rs.next()) {
-                System.out.println(rs.getString("SUP_NAME"));
+            jdbcRs.setCommand("select * from suppliers");
+            jdbcRs.execute();
+
+            jdbcRs.moveToInsertRow();
+            jdbcRs.updateString("SUP_ID", "123");
+            jdbcRs.insertRow();
+            
+            while (jdbcRs.next()) {
+                String sup_id = jdbcRs.getString("SUP_ID");
+                System.out.println("sup_id: " + sup_id);
             }
 
         } catch (ClassNotFoundException e) {
             System.out.printf("Class Not Found" + e.getMessage());
-        } catch (SQLException ex) {
-            System.out.printf("Error connecting: %s", ex.getMessage());
+        } catch (SQLException e) {
+            System.out.printf(e.getMessage() + " - " + e.getErrorCode());
         }
     }
 }
