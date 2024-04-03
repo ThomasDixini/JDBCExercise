@@ -1,10 +1,10 @@
 # Exercicio para JDBC
 
-    Este exercício foi desenvolvido com o objetivo de consolidar os conhecimentos em JDBC (Java Database Connectivity). Através da criação de um programa Java, que utiliza os diversos tipos de RowSets e ResultSets, espera-se fortalecer habilidades como conexão a bancos de dados, manipulação de dados e consultas SQL. Ao realizar atividades práticas como essa, é possível aprimorar a compreensão sobre como interagir com bancos de dados relacionais usando a plataforma Java, um conhecimento fundamental para o desenvolvimento de aplicativos corporativos e sistemas baseados em dados.
+  Este exercício foi desenvolvido com o objetivo de consolidar os conhecimentos em JDBC (Java Database Connectivity). Através da criação de um programa Java, que utiliza os diversos tipos de RowSets e ResultSets, espera-se fortalecer habilidades como conexão a bancos de dados, manipulação de dados e consultas SQL. Ao realizar atividades práticas como essa, é possível aprimorar a compreensão sobre como interagir com bancos de dados relacionais usando a plataforma Java, um conhecimento fundamental para o desenvolvimento de aplicativos corporativos e sistemas baseados em dados.
 
 Abaixo esta um exemplo de diagrama de relacionamento de entidade que vai nos ajudar a criar nossas tabelas no banco de Dados.
 
-![JDBC Exercises.drawio.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c78c9d7f-3e13-414a-8ac4-526505a24f1f/0cfb4b08-2145-4e01-88ab-2f70e1e3ae99/JDBC_Exercises.drawio.png)
+![JDBC Exercises drawio (1)](https://github.com/ThomasDixini/JDBCExercise/assets/83423919/17a16ff8-f8c6-49d1-b296-b990cb91ac7b)
 
 ### Clientes
 
