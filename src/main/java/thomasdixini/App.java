@@ -30,6 +30,8 @@ public class App {
             String queryInsert = "SELECT * FROM CLIENTE";
             Date date = new Date(System.currentTimeMillis());
             DAO.insert(con, "cliente", queryInsert, 1, "Wesley", "wesleyteste", "1234", date, date);
+
+            DAO.update(con, "cliente", "");
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         } catch (SQLException err) {

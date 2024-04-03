@@ -3,6 +3,7 @@ package thomasdixini.jdbcdao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,6 +59,21 @@ public class DAO {
             rs.updateDate("CREATED_AT", created_at);
             rs.updateDate("LAST_MODIFIED_AT", last_modified_at);
             rs.insertRow();
+        } catch(SQLException err) {
+            System.out.println(
+                err.getSQLState() + "\n" +
+                err.getErrorCode() + "\n" +
+                err.getMessage() + "\n" +
+                err.getCause()
+                );
+        }
+    }
+    public static void update(Connection con, String table, String query) throws SQLException {
+        try {
+            PreparedStatement stmt = con.prepareStatement("UPDATE CLIENTE SET USERNAME = ? WHERE NAME = ?");
+            stmt.setString(1, "thomas");
+            stmt.setString(2, "Wesley");
+            stmt.executeUpdate();
         } catch(SQLException err) {
             System.out.println(
                 err.getSQLState() + "\n" +
