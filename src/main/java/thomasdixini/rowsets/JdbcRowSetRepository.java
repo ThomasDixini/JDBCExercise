@@ -56,4 +56,11 @@ public class JdbcRowSetRepository {
         jdbcRs.updateDate("LAST_MODIFIED_AT", new Date(System.currentTimeMillis()));
         jdbcRs.insertRow();
     }
+    public void delete(String table) throws SQLException {
+        jdbcRs.setCommand("SELECT * FROM " + table);
+        jdbcRs.execute();
+
+        jdbcRs.last();
+        jdbcRs.deleteRow();
+    }
 }

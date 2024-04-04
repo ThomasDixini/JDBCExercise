@@ -29,7 +29,8 @@ public class App {
             JdbcRowSetRepository repository = new JdbcRowSetRepository("jdbc:mysql://localhost:3306/rowsetjdbc", "root", "1234");
             repository.setConnection();
             //repository.createTable(con2,"cliente");
-            repository.insert("cliente");
+            //repository.insert("cliente");
+            repository.delete("cliente");
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         } catch (SQLException err) {
